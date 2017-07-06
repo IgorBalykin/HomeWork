@@ -3,6 +3,11 @@
 
 namespace DEV_1
 {
+    enum CustomSequenceStatusCodes
+    {
+        ok = 0,
+        exceptionInMain = -1
+    }
     class CustomSequenceOutputter
     {
         private const string ERROR_MAIN_MESSAGE = "Looks like something really bad happened, halting with error code";
@@ -10,16 +15,16 @@ namespace DEV_1
         {
             try
             {
-                Sequence seq = new Sequence();
-                seq.print();
+                Sequence mainProgramSequence = new Sequence();
+                mainProgramSequence.print();
                 Console.ReadKey();
             }
             catch(Exception)
             {
                 Console.WriteLine(ERROR_MAIN_MESSAGE);
-                return -1;
+                return (int) CustomSequenceStatusCodes.exceptionInMain;
             }
-            return 0;
+            return (int) CustomSequenceStatusCodes.ok;
         }
     }
 }
