@@ -5,7 +5,8 @@ namespace DEV_1
     enum CustomSequenceStatusCodes
     {
         ok = 0,
-        exceptionInMain = -1
+        exceptionInMain = -1,
+        generalException = -2
     }
     class CustomSequenceOutputter
     {

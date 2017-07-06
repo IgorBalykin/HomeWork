@@ -26,10 +26,10 @@ namespace DEV_1
             }
             catch(Exception)
             {
-                return -1;
+                return (int) CustomSequenceStatusCodes.generalException;
             }
             Console.WriteLine(END_MESSAGE);
-            return 0;
+            return (int) CustomSequenceStatusCodes.ok;
         }
 
     }
