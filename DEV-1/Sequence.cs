@@ -8,7 +8,7 @@ namespace DEV_1
         private const int SEQUENCE_END = 100;
         private const int DIVISOR = 3;
         private const string END_MESSAGE = "End of sequence reached";
-        public int print()
+        public int Print()
         {
             try
             {

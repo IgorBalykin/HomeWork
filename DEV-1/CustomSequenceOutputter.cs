@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace DEV_1
 {
     enum CustomSequenceStatusCodes
@@ -16,7 +15,7 @@ namespace DEV_1
             try
             {
                 Sequence mainProgramSequence = new Sequence();
-                mainProgramSequence.print();
+                mainProgramSequence.Print();
                 Console.ReadKey();
             }
             catch(Exception)
