@@ -7,7 +7,7 @@
     <ProjectGuid>{8FC33D9F-0407-4CAF-9100-B0099E1D768D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DEV_3</RootNamespace>
-    <AssemblyName>DEV_3</AssemblyName>
+    <AssemblyName>DEV-3</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="FibNumber.cs" />
+    <Compile Include="FibNumConsoleReader.cs" />
+    <Compile Include="FibNumValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
