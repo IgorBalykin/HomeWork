@@ -2,7 +2,6 @@
 
 namespace DEV_3
 {
-    
     class FibNumber
     {
         enum CheckIfFibStatus
