@@ -9,7 +9,7 @@ namespace DEV_3
         private const string INPUT_QUERY = "Enter number or q to quit from number input";
         private const string MSG_ERROR = "Error occured:";
         private const string SECOND_QUERY = "Please, repeat attempt or enter q to quit";
-        private FibNumber Checker = new FibNumber();
+        private FibNumber FibNum = new FibNumber();
         public void ReadNumber()
         {
             Console.WriteLine(INPUT_QUERY);
@@ -21,15 +21,15 @@ namespace DEV_3
                     break;
                 }
 
-                NumberValidStatus numberValidStat = Checker.Validator.Validate(rawNumber);
+                NumberValidStatus numberValidStat = FibNum.Validator.Validate(rawNumber);
                 if (numberValidStat == NumberValidStatus.ok)
                 {
-                    Checker.Number = int.Parse(rawNumber); //side effect of setter - output on number type
+                    FibNum.Number = int.Parse(rawNumber); //side effect of setter - output on number type
                 }
                 else
                 {
                     Console.WriteLine(MSG_ERROR);
-                    Checker.Validator.ShowValidationStatus(numberValidStat);
+                    FibNum.Validator.ShowValidationStatus(numberValidStat);
                 }
                 Console.WriteLine(SECOND_QUERY);
             }
