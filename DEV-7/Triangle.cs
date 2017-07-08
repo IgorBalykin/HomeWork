@@ -5,9 +5,10 @@ namespace DEV_7
 {
     class Triangle : Figure
     {
-        private const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists";
+        private const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists, creating default triangle";
         private const int NUMBER_OF_SIDES = 3;
-        private const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor";
+        private const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor, creating default triangle";
+        private readonly double[] DEFAULT_SIDES_SET = new double[]{ 1, 1, 1 };
         private List<FigSide> _sides;
         public List<FigSide> Sides
         {
@@ -32,16 +33,26 @@ namespace DEV_7
             if (sideList == null)
             {
                 Console.WriteLine(MSG_WARNING_NULLPOINTER_IN_CONSTR);
-                return;
+                SetTrinagleSides(DEFAULT_SIDES_SET);
             }
-            Sides = sideList;
+            else
+            {
+                Sides = sideList;
+            }
         }
         public Triangle(double[] doubleSideList)
+        {
+            if(!SetTrinagleSides(doubleSideList))
+            {
+                SetTrinagleSides(DEFAULT_SIDES_SET);
+            }
+        }
+        public bool SetTrinagleSides(double[] doubleSideList)
         {
             if (doubleSideList == null)
             {
                 Console.WriteLine(MSG_WARNING_NULLPOINTER_IN_CONSTR);
-                return;
+                return false;
             }
             if (doubleSideList.Length == NUMBER_OF_SIDES)
             {
@@ -51,10 +62,12 @@ namespace DEV_7
                     tempList.Add(new FigSide(sideLen));
                 }
                 Sides = tempList;
+                return true;
             }
             else
             {
                 Console.WriteLine(MSG_WARNING_NO_TRIANGLE_EXISTS);
+                return false;
             }
         }
         public override bool CheckIfFigure(List<FigSide> inputToCheck)
