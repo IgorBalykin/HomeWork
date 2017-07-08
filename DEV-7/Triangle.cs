@@ -33,7 +33,7 @@ namespace DEV_7
             if (sideList == null)
             {
                 Console.WriteLine(MSG_WARNING_NULLPOINTER_IN_CONSTR);
-                SetTrinagleSides(DEFAULT_SIDES_SET);
+                SetTriangleSides(DEFAULT_SIDES_SET);
             }
             else
             {
@@ -42,12 +42,12 @@ namespace DEV_7
         }
         public Triangle(double[] doubleSideList)
         {
-            if(!SetTrinagleSides(doubleSideList))
+            if(!SetTriangleSides(doubleSideList))
             {
-                SetTrinagleSides(DEFAULT_SIDES_SET);
+                SetTriangleSides(DEFAULT_SIDES_SET);
             }
         }
-        public bool SetTrinagleSides(double[] doubleSideList)
+        public bool SetTriangleSides(double[] doubleSideList)
         {
             if (doubleSideList == null)
             {
@@ -73,16 +73,16 @@ namespace DEV_7
         public override bool CheckIfFigure(List<FigSide> inputToCheck)
         {
             //check if triangle exists
-            if (inputToCheck.Count != 3)
+            if (inputToCheck.Count != NUMBER_OF_SIDES)
             {
                 return false;
             }
-            FigSide a = inputToCheck[0];
-            FigSide b = inputToCheck[1];
-            FigSide c = inputToCheck[2];
-            bool checkA = a.GeomLength < b.GeomLength + c.GeomLength;
-            bool checkB = b.GeomLength < a.GeomLength + c.GeomLength;
-            bool checkC = c.GeomLength < b.GeomLength + a.GeomLength;
+            double aLength = inputToCheck[0].GeomLength;
+            double bLength = inputToCheck[1].GeomLength;
+            double cLength = inputToCheck[2].GeomLength;
+            bool checkA = aLength <= bLength + cLength;
+            bool checkB = bLength <= aLength + cLength;
+            bool checkC = cLength <= bLength + aLength;
             if (checkA && checkB && checkC)
             {
                 return true;
@@ -99,9 +99,9 @@ namespace DEV_7
         public override List<double> GetSidesLength()
         {
             var returnList = new List<double>(_sides.Count);
-            for (int i = 0; i < _sides.Count; i++)
+            foreach(var side in _sides)
             {
-                returnList[i] = _sides[i].GeomLength;
+                returnList.Add(side.GeomLength);
             }
             return returnList;
         }

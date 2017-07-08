@@ -8,9 +8,9 @@ namespace DEV_7
 {
     class ConsoleReader
     {
-        private readonly char[] DELIMETERS = new char[] { ' ', ',', ';' };
+        private readonly char[] DELIMETERS = new char[] { ' ', ';' };
         private const int MAX_ATTEMPTS = int.MaxValue;
-        private const string INPUT_QUERY = "Please, enter double sequnce or q to exit";
+        private const string INPUT_QUERY = "Please, enter double sequnce or q to exit input routine";
         private const string EXIT_KEY = "q";
         private const string MSG_INPUT_UNPARSABLE = "Input is unparsable, probably wrong delimeter or value";
         public string GetRawData()

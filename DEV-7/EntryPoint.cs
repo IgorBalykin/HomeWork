@@ -11,8 +11,10 @@ namespace DEV_7
         static void Main(string[] args)
         {
             ConsoleReader mainReader = new ConsoleReader();
+            TriangleTypeDeterminator mainDeterminator = new TriangleTypeDeterminator();
             double[] sides = mainReader.ReadDoublesFromConsoleUntilSuccess();
-            Triangle trian = new Triangle(sides);
+            Triangle mainTriangle = new Triangle(sides);
+            mainDeterminator.DetermineAndShowType(mainTriangle);
             Console.ReadKey();
         }
     }
