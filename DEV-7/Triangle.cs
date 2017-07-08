@@ -7,6 +7,7 @@ namespace DEV_7
     {
         private const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists";
         private const int NUMBER_OF_SIDES = 3;
+        private const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor";
         private List<FigSide> _sides;
         public List<FigSide> Sides
         {
@@ -28,10 +29,20 @@ namespace DEV_7
         }
         public Triangle(List<FigSide> sideList)
         {
+            if (sideList == null)
+            {
+                Console.WriteLine(MSG_WARNING_NULLPOINTER_IN_CONSTR);
+                return;
+            }
             Sides = sideList;
         }
         public Triangle(double[] doubleSideList)
         {
+            if (doubleSideList == null)
+            {
+                Console.WriteLine(MSG_WARNING_NULLPOINTER_IN_CONSTR);
+                return;
+            }
             if (doubleSideList.Length == NUMBER_OF_SIDES)
             {
                 var tempList = new List<FigSide>(NUMBER_OF_SIDES);

@@ -10,9 +10,9 @@ namespace DEV_7
     {
         static void Main(string[] args)
         {
-
-            Triangle trian = new Triangle(new double[3] {5,1,1});
-            Console.WriteLine(trian.GetPerimeter().ToString());
+            ConsoleReader mainReader = new ConsoleReader();
+            double[] sides = mainReader.ReadDoublesFromConsoleUntilSuccess();
+            Triangle trian = new Triangle(sides);
             Console.ReadKey();
         }
     }

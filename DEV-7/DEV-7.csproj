@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleReader.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="FigSide.cs" />
     <Compile Include="Figure.cs" />
