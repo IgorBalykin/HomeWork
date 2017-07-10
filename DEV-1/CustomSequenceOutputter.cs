@@ -4,9 +4,9 @@ namespace DEV_1
 {
     enum CustomSequenceStatusCodes
     {
-        ok = 0,
-        exceptionInMain = -1,
-        generalException = -2
+        Ok = 0,
+        ExceptionInMain = -1,
+        GeneralException = -2
     }
     class CustomSequenceOutputter
     {
@@ -22,9 +22,9 @@ namespace DEV_1
             catch(Exception)
             {
                 Console.WriteLine(ERROR_MAIN_MESSAGE);
-                return (int) CustomSequenceStatusCodes.exceptionInMain;
+                return (int) CustomSequenceStatusCodes.ExceptionInMain;
             }
-            return (int) CustomSequenceStatusCodes.ok;
+            return (int) CustomSequenceStatusCodes.Ok;
         }
     }
 }
