@@ -28,7 +28,7 @@ namespace DEV_456
         }
         public IntegerSequence(string[] inputSeq)
         {
-            if(TryParseStringSequence(inputSeq, out int[] parseResult))
+            if (TryParseStringSequence(inputSeq, out int[] parseResult))
             {
                 _numbers = new List<int>(parseResult);
             }
@@ -40,7 +40,7 @@ namespace DEV_456
         public bool TryParseStringSequence(string[] inputSeq, out int[] outputSeq)
         {
             outputSeq = new int[inputSeq.Length];
-            for(int i=0;i<inputSeq.Length;i++)
+            for (int i = 0; i < inputSeq.Length; i++)
             {
                 if (!Int32.TryParse(inputSeq[i], out outputSeq[i]))
                 {
@@ -51,9 +51,9 @@ namespace DEV_456
         }
         public void ShowSequenceInConsole()
         {
-            if(_numbers!=null)
+            if (_numbers != null)
             {
-                foreach(var number in _numbers)
+                foreach (var number in _numbers)
                 {
                     Console.Write(number.ToString() + ' ');
                 }

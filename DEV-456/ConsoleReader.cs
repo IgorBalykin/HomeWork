@@ -88,7 +88,7 @@ namespace DEV_456
                     Console.WriteLine(MSG_INPUT_UNPARSABLE);
                 }
             }
-            return null;
+            return new int[0];
         }
         public string[] GetRawAndSplit()
         {

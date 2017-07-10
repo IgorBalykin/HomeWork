@@ -19,7 +19,8 @@ namespace DEV_456
                 mainSeq.Numbers = new List<int>(splittedIntegerData);
             }
             SequenceAnalyzer mainAnalyzer = new SequenceAnalyzer();
-            mainAnalyzer.CheckSequenceAndPrintType(mainSeq);
+            //mainAnalyzer.CheckSequenceAndPrintType(mainSeq); //same thing below, literally expanding method definition from body of class
+            mainAnalyzer.ShowSequenceTypeToConsole(mainAnalyzer.CheckIfSequenceIsNonDecreasing(mainSeq));
             Console.ReadKey();
         }
     }

@@ -4,9 +4,9 @@ namespace DEV_456
 {
     enum SequenceType
     {
-        nonDecreasing = 0,
-        usual = 1,
-        empty = 3
+        NonDecreasing = 0,
+        Usual = 1,
+        Empty = 3
     }
     class SequenceAnalyzer
     {
@@ -16,31 +16,31 @@ namespace DEV_456
         private const string MSG_SEQTYPE_UNKNOWN = "Sequence unknown, probably wrong argument in SequenceType";
         public SequenceType CheckIfSequenceIsNonDecreasing(IntegerSequence inputSequence)
         {
-            if (inputSequence.Numbers == null)
+            if ((inputSequence.Numbers == null) || (inputSequence.Numbers.Count==0))
             {
-                return SequenceType.empty;
+                return SequenceType.Empty;
             }
             var sequenceToCheck = inputSequence.Numbers;
-            for(int i =1;i<sequenceToCheck.Count;i++)
+            for (int i = 1; i < sequenceToCheck.Count; i++)
             {
-                if(sequenceToCheck[i]<sequenceToCheck[i-1])
+                if (sequenceToCheck[i] < sequenceToCheck[i - 1])
                 {
-                    return SequenceType.usual;
+                    return SequenceType.Usual;
                 }
             }
-            return SequenceType.nonDecreasing;
+            return SequenceType.NonDecreasing;
         }
         public void ShowSequenceTypeToConsole(SequenceType inputType)
         {
             switch (inputType)
             {
-                case SequenceType.empty:
+                case SequenceType.Empty:
                     Console.WriteLine(MSG_SEQTYPE_EMPTY);
                     break;
-                case SequenceType.nonDecreasing:
+                case SequenceType.NonDecreasing:
                     Console.WriteLine(MSG_SEQTYPE_NONDECR);
                     break;
-                case SequenceType.usual:
+                case SequenceType.Usual:
                     Console.WriteLine(MSG_SEQTYPE_USUAL);
                     break;
                 default:
