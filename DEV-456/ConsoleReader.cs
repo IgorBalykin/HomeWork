@@ -29,6 +29,18 @@ namespace DEV_456
             }
             return true;
         }
+        public bool TryParseDataInteger(string[] splittedRaw, out int[] parsedDoubles)
+        {
+            parsedDoubles = new int[splittedRaw.Length];
+            for (int i = 0; i < splittedRaw.Length; i++)
+            {
+                if (!int.TryParse(splittedRaw[i], out parsedDoubles[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         public double[] ReadDoublesFromConsoleUntilSuccess()
         {
             for (int i = 0; i < MAX_ATTEMPTS; i++)
@@ -41,6 +53,28 @@ namespace DEV_456
                 }
                 var splittedData = SplitRawData(rawData);
                 if (TryParseDataDouble(splittedData, out double[] returnValue))
+                {
+                    return returnValue;
+                }
+                else
+                {
+                    Console.WriteLine(MSG_INPUT_UNPARSABLE);
+                }
+            }
+            return null;
+        }
+        public int[] ReadIntegersFromConsoleUntilSuccess()
+        {
+            for (int i = 0; i < MAX_ATTEMPTS; i++)
+            {
+                Console.WriteLine(INPUT_QUERY);
+                var rawData = GetRawData();
+                if (rawData == EXIT_KEY)
+                {
+                    break;
+                }
+                var splittedData = SplitRawData(rawData);
+                if (TryParseDataInteger(splittedData, out int[] returnValue))
                 {
                     return returnValue;
                 }

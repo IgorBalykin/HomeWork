@@ -10,13 +10,9 @@ namespace DEV_456
     {
         static void Main(string[] args)
         {
-            ConsoleReader mainReader = new ConsoleReader();
-            IntegerSequence mainSeq = new IntegerSequence();
-            string[] splittedData = mainReader.GetRawAndSplit();
-            if(mainSeq.TryParseStringSequence(splittedData, out int[] outputSeq))
-            {
-                mainSeq.Numbers = new List<int>(outputSeq);
-            }
+            ConsoleReader mainReader = new ConsoleReader();    
+            int[] splittedIntegerData = mainReader.ReadIntegersFromConsoleUntilSuccess();
+            IntegerSequence mainSeq = new IntegerSequence(splittedIntegerData);
             Console.ReadKey();
         }
     }
