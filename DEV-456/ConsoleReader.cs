@@ -31,6 +31,11 @@ namespace DEV_456
         }
         public bool TryParseDataInteger(string[] splittedRaw, out int[] parsedDoubles)
         {
+            if ((splittedRaw == null) || (splittedRaw.Length == 0))
+            {
+                parsedDoubles = null;
+                return false;
+            }
             parsedDoubles = new int[splittedRaw.Length];
             for (int i = 0; i < splittedRaw.Length; i++)
             {
