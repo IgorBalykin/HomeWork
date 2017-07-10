@@ -12,7 +12,7 @@ namespace DEV_7
         public List<double> Orientation;
         public FigSide(double len)
         {
-            if (len>0)
+            if (len > 0)
             {
                 GeomLength = len;
             }

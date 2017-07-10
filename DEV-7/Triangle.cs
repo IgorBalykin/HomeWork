@@ -8,7 +8,7 @@ namespace DEV_7
         private const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists, creating default triangle";
         private const int NUMBER_OF_SIDES = 3;
         private const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor, creating default triangle";
-        private readonly double[] DEFAULT_SIDES_SET = new double[]{ 1, 1, 1 };
+        private readonly double[] DEFAULT_SIDES_SET = new double[] { 1, 1, 1 };
         private List<FigSide> _sides;
         public List<FigSide> Sides
         {
@@ -42,7 +42,7 @@ namespace DEV_7
         }
         public Triangle(double[] doubleSideList)
         {
-            if(!SetTriangleSides(doubleSideList))
+            if (!SetTriangleSides(doubleSideList))
             {
                 SetTriangleSides(DEFAULT_SIDES_SET);
             }
@@ -99,7 +99,7 @@ namespace DEV_7
         public override List<double> GetSidesLength()
         {
             var returnList = new List<double>(_sides.Count);
-            foreach(var side in _sides)
+            foreach (var side in _sides)
             {
                 returnList.Add(side.GeomLength);
             }

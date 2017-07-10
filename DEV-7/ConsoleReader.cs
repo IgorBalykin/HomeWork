@@ -20,9 +20,9 @@ namespace DEV_7
         public bool TryParseDataDouble(string[] splittedRaw, out double[] parsedDoubles)
         {
             parsedDoubles = new double[splittedRaw.Length];
-            for(int i=0;i<splittedRaw.Length;i++)
+            for (int i = 0; i < splittedRaw.Length; i++)
             {
-                if(!double.TryParse(splittedRaw[i],out parsedDoubles[i]))
+                if (!double.TryParse(splittedRaw[i], out parsedDoubles[i]))
                 {
                     return false;
                 }
@@ -31,11 +31,11 @@ namespace DEV_7
         }
         public double[] ReadDoublesFromConsoleUntilSuccess()
         {
-            for(int i=0;i<MAX_ATTEMPTS;i++)
+            for (int i = 0; i < MAX_ATTEMPTS; i++)
             {
                 Console.WriteLine(INPUT_QUERY);
                 var rawData = GetRawData();
-                if(rawData==EXIT_KEY)
+                if (rawData == EXIT_KEY)
                 {
                     break;
                 }
