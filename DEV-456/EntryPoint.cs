@@ -13,6 +13,7 @@ namespace DEV_456
             ConsoleReader mainReader = new ConsoleReader();    
             int[] splittedIntegerData = mainReader.ReadIntegersFromConsoleUntilSuccess();
             IntegerSequence mainSeq = new IntegerSequence(splittedIntegerData);
+            mainSeq.ShowSequenceInConsole();
             Console.ReadKey();
         }
     }

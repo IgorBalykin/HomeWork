@@ -52,5 +52,19 @@ namespace DEV_456
             }
             return true;
         }
+        public void ShowSequenceInConsole()
+        {
+            if(_numbers!=null)
+            {
+                foreach(var number in _numbers)
+                {
+                    Console.Write(number.ToString() + ' ');
+                }
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+        }
     }
 }
