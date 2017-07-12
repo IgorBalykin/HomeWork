@@ -5,11 +5,19 @@ namespace DEV_7
 {
     class Triangle : Figure
     {
-        private const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists, creating default triangle";
-        private const int NUMBER_OF_SIDES = 3;
-        private const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor, creating default triangle";
-        private readonly double[] DEFAULT_SIDES_SET = new double[] { 1, 1, 1 };
-        private List<FigSide> _sides;
+        protected const string MSG_WARNING_NO_TRIANGLE_EXISTS = "Warning! No triangle with defined sides exists, creating default triangle";
+        protected const int NUMBER_OF_SIDES = 3;
+        protected const string MSG_WARNING_NULLPOINTER_IN_CONSTR = "Warning! Someone passed a nullpointer in triangle constructor, creating default triangle";
+        protected readonly double[] DEFAULT_SIDES_SET = new double[] { 1, 1, 1 };
+        private const string _MSG_TYPE_OF_TRIANGLE = "This is common triangle";
+        protected virtual string MSG_TYPE_OF_TRIANGLE
+        {
+            get
+            {
+                return _MSG_TYPE_OF_TRIANGLE;
+            }
+        }
+        protected List<FigSide> _sides;
         public List<FigSide> Sides
         {
             get
@@ -27,6 +35,10 @@ namespace DEV_7
                     Console.WriteLine(MSG_WARNING_NO_TRIANGLE_EXISTS);
                 }
             }
+        }
+        public Triangle()
+        {
+            SetTriangleSides(DEFAULT_SIDES_SET);
         }
         public Triangle(List<FigSide> sideList)
         {
@@ -117,6 +129,10 @@ namespace DEV_7
                 perimeter += side.GeomLength;
             }
             return perimeter;
+        }
+        public virtual void PrintType()
+        {
+            Console.WriteLine(MSG_TYPE_OF_TRIANGLE);
         }
     }
 }

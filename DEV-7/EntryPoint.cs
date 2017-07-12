@@ -16,16 +16,18 @@ namespace DEV_7
             try
             {
                 ConsoleReader mainReader = new ConsoleReader();
-                TriangleTypeDeterminator mainDeterminator = new TriangleTypeDeterminator();
+                TriangleBuilder mainBuilder = new TriangleBuilder();
                 double[] sides = mainReader.ReadDoublesFromConsoleUntilSuccess();
-                Triangle mainTriangle = new Triangle(sides);
-                mainDeterminator.DetermineAndShowType(mainTriangle);
+                Triangle mainTriangle = mainBuilder.Create(sides);
+                mainTriangle.PrintType();
                 Console.ReadKey();
                 return (int)MainStatusCodes.ok;
             }
-            catch (Exception)
+            catch (Exception generalException)
             {
                 Console.WriteLine(ERROR_MAIN_MESSAGE);
+                Console.WriteLine(generalException.Message);
+                Console.ReadKey();
                 return (int)MainStatusCodes.exceptionInMain;
             }
         }

@@ -49,7 +49,7 @@ namespace DEV_7
                     Console.WriteLine(MSG_INPUT_UNPARSABLE);
                 }
             }
-            return null;
+            return new double[0];
         }
     }
 }
