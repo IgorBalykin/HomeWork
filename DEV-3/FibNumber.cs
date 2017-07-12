@@ -40,7 +40,7 @@ namespace DEV_3
             int fibNum0 = 0;
             int fibNum1 = 1;
             int fibNumCurrent = fibNum1;
-            while(fibNumCurrent <= numberToCheck)
+            while (fibNumCurrent <= numberToCheck)
             {
                 if (fibNumCurrent == numberToCheck)
                 {
@@ -54,7 +54,7 @@ namespace DEV_3
         }
         private void ShowCheckStatus(CheckIfFibStatus statusCode)
         {
-            switch(statusCode)
+            switch (statusCode)
             {
                 case CheckIfFibStatus.fib:
                     Console.WriteLine(MSG_NUMBER_IS_FIB);

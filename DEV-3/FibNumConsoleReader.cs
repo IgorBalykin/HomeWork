@@ -13,7 +13,7 @@ namespace DEV_3
         public void ReadNumber()
         {
             Console.WriteLine(INPUT_QUERY);
-            for(int i = 0; i < MAX_ATTEMPTS; i++)
+            for (int i = 0; i < MAX_ATTEMPTS; i++)
             {
                 string rawNumber = Console.ReadLine();
                 if (rawNumber == EXIT_KEY)
